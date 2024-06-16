@@ -1,5 +1,5 @@
-## React Practice Project
-This project is a practice exercise for working with various features of React, including React Router DOM, useNavigate, lazy loading, Suspense, props drilling, and the Context API.
+## React Practice Folder
+This Folder is a practice exercise for working with various features of React, including React Router DOM, useNavigate, lazy loading, Suspense, props drilling, and the Context API.
 
 ## Table of Contents
 -Introduction
