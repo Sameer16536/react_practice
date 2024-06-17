@@ -17,10 +17,7 @@ function MainApp() {
 
   useEffect(() => {
     // fetch
-    axios.get("https://sum-server.100xdevs.com/notifications")
-      .then(res => {
-        setNetworkCount(res.data)
-      })
+    
   }, [])
 
   return (
