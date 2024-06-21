@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import axios from 'axios'
 import './App.css'
 import { Profile } from './Profile'
+import Online from './Online'
+import Mouse from './Mouse'
 
 //Custom hook
 const useTodos =(n)=>{
@@ -58,6 +60,9 @@ const Track =({todo})=>{
     {todo.description}
     <br />
     <Profile/>
+    <br /><br />
+    <Online />
+    <Mouse/>
   </div>
 }
 export default App
