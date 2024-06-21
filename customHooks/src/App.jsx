@@ -3,20 +3,32 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import axios from 'axios'
 import './App.css'
+import { Profile } from './Profile'
 
 //Custom hook
-const useTodos =()=>{
+const useTodos =(n)=>{
   //Loader
   const [ loading, setLoading] = useState(true)
   const [todos, setTodos] = useState([])
-  useEffect(()=>{
+
+  //auto refresh:
+  const getData = ()=>{
     axios.get("https://sum-server.100xdevs.com/todos")
     .then(res=>{
       setTodos(res.data.todos)
       //If the data is fetched successfully then::
       setLoading(false)
     })
-  },[])
+  }
+
+
+  useEffect(()=>{
+    setInterval(()=>{
+      getData()
+    },n*1000)
+    //Cleanup func:
+    getData()
+  },[n])
   return{
     todos:todos,
     loading:loading
@@ -24,7 +36,7 @@ const useTodos =()=>{
 }
 
 function App() {
-  const {todos,loading} = useTodos()
+  const {todos,loading} = useTodos(5)
 
   if(loading){
     return <div>
@@ -44,6 +56,8 @@ const Track =({todo})=>{
     {todo.title}
     <br />
     {todo.description}
+    <br />
+    <Profile/>
   </div>
 }
 export default App
